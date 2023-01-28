@@ -1,3 +1,15 @@
+// Current location
+let currentElement = document.querySelector("#current");
+let currentDateElement = currentElement.querySelector(".date");
+let currentTimeElement = currentElement.querySelector(".time");
+
+function currentTime() {
+  currentDateElement.innerHTML = moment()
+    .tz.guess()
+    .format("dddd Do MMMM YYYY");
+  currentTimeElement.innerHTML = moment().tz.guess().format("HH:mm:ss");
+}
+
 // New York
 let newYorkElement = document.querySelector("#new-york");
 let newYorkDateElement = newYorkElement.querySelector(".date");
@@ -23,8 +35,10 @@ function londonTime() {
 // Update every second
 newYorkTime();
 londonTime();
+currentTime();
 setInterval(newYorkTime, 1000);
 setInterval(londonTime, 1000);
+setInterval(currentTime, 1000);
 
 // Dropdown box
 function updateCity(event) {
