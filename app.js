@@ -13,6 +13,20 @@ function currentTime() {
     .format("HH:mm:ss")}`;
 }
 
+// Honolulu
+let honoluluElement = document.querySelector("#honolulu");
+let honoluluDateElement = honoluluElement.querySelector(".date");
+let honoluluTimeElement = honoluluElement.querySelector(".time");
+
+function honoluluTime() {
+  honoluluDateElement.innerHTML = moment()
+    .tz("Pacific/Honolulu")
+    .format("dddd Do MMMM YYYY");
+  honoluluTimeElement.innerHTML = moment()
+    .tz("Pacific/Honolulu")
+    .format("HH:mm:ss");
+}
+
 // New York
 let newYorkElement = document.querySelector("#new-york");
 let newYorkDateElement = newYorkElement.querySelector(".date");
@@ -55,10 +69,12 @@ function perthTime() {
 
 // Update every second
 currentTime();
+honoluluTime();
 newYorkTime();
 londonTime();
 perthTime();
 setInterval(currentTime, 1000);
+setInterval(honoluluTime, 1000);
 setInterval(newYorkTime, 1000);
 setInterval(londonTime, 1000);
 setInterval(perthTime, 1000);
