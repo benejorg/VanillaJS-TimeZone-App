@@ -52,6 +52,12 @@ h1 {
   text-align: center;
 }
 
+h1 a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 select {
   width: 100%;
   padding: 15px;
@@ -96,4 +102,5 @@ return a:hover {
   text-decoration: underline;
   text-underline-offset: 5px;
   color: white;
+  font-weight: 800;
 }

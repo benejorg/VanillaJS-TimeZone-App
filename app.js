@@ -64,7 +64,10 @@ setInterval(londonTime, 1000);
 setInterval(perthTime, 1000);
 
 // Dropdown box
+let cityIntervalId;
+
 function updateCity(event) {
+  clearInterval(cityIntervalId);
   let cityTimeZone = event.target.value;
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone).format("dddd Do MMMM YYYY");
@@ -79,8 +82,29 @@ function updateCity(event) {
   <div class="time">${moment().tz(cityTimeZone).format("HH:mm:ss")}</div>
 </div>
 <div class="return"><a href="https://cool-moonbeam-165f03.netlify.app/">Return to overview</a></div>`;
+  cityIntervalId = setInterval(() => {
+    citiesElement.innerHTML = `<div class="city">
+      <div>
+        <h2>${cityName}</h2>
+        <div class="date">${moment()
+          .tz(cityTimeZone)
+          .format("dddd Do MMMM YYYY")}</div>
+      </div>
+      <div class="time">${moment().tz(cityTimeZone).format("HH:mm:ss")}</div>
+    </div>
+    <div class="return"><a href="https://cool-moonbeam-165f03.netlify.app/">Return to overview</a></div>`;
+  }, 1000);
 }
 
 let citiesSelectElement = document.querySelector("#citySelector");
 
 citiesSelectElement.addEventListener("change", updateCity);
+
+// Return to homepage when "Select a city" is selected
+const citySelectorReturn = document.getElementById("citySelector");
+
+citySelectorReturn.addEventListener("change", function () {
+  if (this.value === "return") {
+    window.location.href = "https://cool-moonbeam-165f03.netlify.app/";
+  }
+});
