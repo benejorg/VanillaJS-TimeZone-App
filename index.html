@@ -21,27 +21,29 @@
   <body>
     <div class="container">
       <h1>Timezones</h1>
-      <select>
+      <select id="citySelector">
         <option value="">Select a city</option>
-        <option value="">Select a city</option>
-        <option value="">Select a city</option>
-        <option value="">Select a city</option>
-        <option value="">Select a city</option>
+        <option value="Europe/Oslo">Oslo</option>
+        <option value="Asia/Bangkok">Bangkok</option>
+        <option value="Australia/Sydney">Sydney</option>
+        <option value="Pacific/Auckland">Auckland</option>
       </select>
       <!-- NY, London, Current, Beijing, Tokyo, Sydney-->
-      <div class="city" id="new-york">
-        <div>
-          <h2>New York 🇺🇸</h2>
-          <div class="date"></div>
+      <div id="cities">
+        <div class="city" id="new-york">
+          <div>
+            <h2>New York 🇺🇸</h2>
+            <div class="date"></div>
+          </div>
+          <div class="time"></div>
         </div>
-        <div class="time"></div>
-      </div>
-      <div class="city" id="london">
-        <div>
-          <h2>London 🇬🇧</h2>
-          <div class="date"></div>
+        <div class="city" id="london">
+          <div>
+            <h2>London 🇬🇧</h2>
+            <div class="date"></div>
+          </div>
+          <div class="time"></div>
         </div>
-        <div class="time"></div>
       </div>
     </div>
     <footer>
