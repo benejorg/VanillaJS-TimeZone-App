@@ -1,5 +1,7 @@
 # VanillaJS-Timezone-App
  
+Created with HTML, CSS, JS and the moment.js library.
+ 
 Check out the Live Demo here!
 https://cool-moonbeam-165f03.netlify.app/
 
