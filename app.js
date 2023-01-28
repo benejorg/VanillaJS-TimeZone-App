@@ -4,10 +4,13 @@ let currentDateElement = currentElement.querySelector(".date");
 let currentTimeElement = currentElement.querySelector(".time");
 
 function currentTime() {
-  currentDateElement.innerHTML = moment()
-    .tz.guess()
-    .format("dddd Do MMMM YYYY");
-  currentTimeElement.innerHTML = moment().tz.guess().format("HH:mm:ss");
+  let currentTimeZone = moment.tz.guess();
+  currentDateElement.innerHTML = `${moment()
+    .tz(currentTimeZone)
+    .format("dddd Do MMMM YYYY")}`;
+  currentTimeElement.innerHTML = `${moment()
+    .tz(currentTimeZone)
+    .format("HH:mm:ss")}`;
 }
 
 // New York
@@ -16,7 +19,9 @@ let newYorkDateElement = newYorkElement.querySelector(".date");
 let newYorkTimeElement = newYorkElement.querySelector(".time");
 
 function newYorkTime() {
-  newYorkDateElement.innerHTML = moment().format("dddd Do MMMM YYYY");
+  newYorkDateElement.innerHTML = moment()
+    .tz("America/New_York")
+    .format("dddd Do MMMM YYYY");
   newYorkTimeElement.innerHTML = moment()
     .tz("America/New_York")
     .format("HH:mm:ss");
@@ -28,17 +33,35 @@ let londonDateElement = londonElement.querySelector(".date");
 let londonTimeElement = londonElement.querySelector(".time");
 
 function londonTime() {
-  londonDateElement.innerHTML = moment().format("dddd Do MMMM YYYY");
+  londonDateElement.innerHTML = moment()
+    .tz("Europe/London")
+    .format("dddd Do MMMM YYYY");
   londonTimeElement.innerHTML = moment().tz("Europe/London").format("HH:mm:ss");
 }
 
+// Perth
+let perthElement = document.querySelector("#perth");
+let perthDateElement = perthElement.querySelector(".date");
+let perthTimeElement = perthElement.querySelector(".time");
+
+function perthTime() {
+  perthDateElement.innerHTML = moment()
+    .tz("Australia/Perth")
+    .format("dddd Do MMMM YYYY");
+  perthTimeElement.innerHTML = moment()
+    .tz("Australia/Perth")
+    .format("HH:mm:ss");
+}
+
 // Update every second
+currentTime();
 newYorkTime();
 londonTime();
-currentTime();
+perthTime();
+setInterval(currentTime, 1000);
 setInterval(newYorkTime, 1000);
 setInterval(londonTime, 1000);
-setInterval(currentTime, 1000);
+setInterval(perthTime, 1000);
 
 // Dropdown box
 function updateCity(event) {
@@ -54,7 +77,8 @@ function updateCity(event) {
       .format("dddd Do MMMM YYYY")}</div>
   </div>
   <div class="time">${moment().tz(cityTimeZone).format("HH:mm:ss")}</div>
-</div>`;
+</div>
+<div class="return"><a href="https://cool-moonbeam-165f03.netlify.app/">Return to overview</a></div>`;
 }
 
 let citiesSelectElement = document.querySelector("#citySelector");
