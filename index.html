@@ -4,13 +4,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timezones</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS & JS -->
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js"></script>
+    <!-- moment.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.40/moment-timezone-with-data-1970-2030.min.js"></script>
+    <title>🕒 Timezones</title>
   </head>
   <body>
-    <h1>Timezones</h1>
+    <div class="container">
+      <h1>Timezones</h1>
+      <select>
+        <option value="">Select a city</option>
+        <option value="">Select a city</option>
+        <option value="">Select a city</option>
+        <option value="">Select a city</option>
+        <option value="">Select a city</option>
+      </select>
+
+      <div class="city">
+        <h2>Los Angeles 🇺🇸</h2>
+        <div class="date">Date 15th 2030</div>
+        <div class="time">13:37:01</div>
+      </div>
+      <div class="city">
+        <h2>New York 🇺🇸</h2>
+        <div class="date">Date 15th 2030</div>
+        <div class="time">13:37:01</div>
+      </div>
+    </div>
     <footer>
       Coded with 💛 by Benedicte S. Jørgensen. <br />
-      Check it out on GitHub!
+      Check it out on
+      <a
+        href="https://github.com/benejorg/VanillaJS-TimeZone-App"
+        target="_blank"
+        >GitHub!</a
+      >
     </footer>
   </body>
 </html>
